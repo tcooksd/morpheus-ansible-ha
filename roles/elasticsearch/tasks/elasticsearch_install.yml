@@ -1,0 +1,8 @@
+---
+- name: Install Elasticsearch
+  yum:
+      name: "{{ elasticsearch_package }}"
+      state: present
+
+- name: Ensuring the Elasticsearch Service is running
+  service: name=elasticsearch state=started enabled=yes

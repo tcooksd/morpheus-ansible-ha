@@ -1,0 +1,6 @@
+---
+- include_tasks: morpheus_packages.yml
+
+- include_tasks: morpheus_configure.yml
+
+- include_tasks: morpheus_reconfigure.yml

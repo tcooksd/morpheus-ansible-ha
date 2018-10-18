@@ -1,0 +1,19 @@
+---
+#- include: centos.yml
+#  when: ansible_os_family == "CentOS"
+
+- include_tasks: rabbitmq_etc_hosts.yml
+
+- include_tasks: epel.yml
+
+- include_tasks: erlang_socat.yml
+
+- include_tasks: rabbitmq_install.yml
+
+- include_tasks: rabbitmq_clustering.yml
+  when: enable_rabbitmq_clustering and (clustered.stat.exists != True)
+
+- include_tasks: rabbitmq_plugins.yml
+
+- include_tasks: rabbitmq_ha_config.yml
+  when: config_rabbitmq_ha and enable_rabbitmq_clustering

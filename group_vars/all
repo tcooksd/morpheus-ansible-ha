@@ -1,0 +1,30 @@
+appliance_url: gottagetaway.com
+percona_repo_url: http://www.percona.com/downloads/percona-release/redhat/0.1-6/percona-release-0.1-6.noarch.rpm
+percona_db_version: Percona-XtraDB-Cluster-57
+mysql_root_pw: password
+sstuser: sstuser
+sstpassword: password
+wsrep_cluster_name: morpheus
+morpheus_db: morpheusdb
+morpheus_db_user: morpheus
+morpheus_db_pass: password
+morpheus_package: https://downloads.gomorpheus.com/files/morpheus-appliance-3.5.1-1.el7.x86_64.rpm
+morpheus_offline_package: https://downloads.gomorpheus.com/files/morpheus-appliance-offline-3.5.1-1.noarch.rpm
+elasticsearch_package: https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-5.6.10.rpm
+es_cluster_name: morpheus
+epel_repo_url: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-{{ ansible_distribution_major_version }}.noarch.rpm"
+epel_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-EPEL-{{ ansible_distribution_major_version }}"
+epel_repofile_path: "/etc/yum.repos.d/epel.repo"
+config_rabbitmq_ha: true
+enable_rabbitmq_clustering: true
+erlang_cookie: LSKNKBELKPSTDBBCHETL
+vhost_name: morpheus
+durable: true
+routing_key: morpheus
+tags: 'ha-mode=all,ha-sync-mode=automatic'
+rabbitmq_lb: 198.68.0.1
+rabbitmq_user: morpheus
+rabbitmq_password: password
+rabbitmq_plugins: 
+    - rabbitmq_stomp
+    - rabbitmq_management

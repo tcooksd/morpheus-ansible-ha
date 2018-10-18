@@ -1,0 +1,10 @@
+---
+- name: Add IP address of all hosts to all hosts
+  blockinfile:
+      dest: /etc/hosts
+      block: | 
+          {% for minion in groups['rabbit_cluster'] %}
+          {{ hostvars[minion]['ansible_all_ipv4_addresses'][0] }} {{ hostvars[minion]['ansible_hostname'] }}
+          {% endfor %}
+
+      marker: "# {mark} ANSIBLE MANAGED BLOCK"

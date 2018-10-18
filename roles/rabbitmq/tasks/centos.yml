@@ -1,0 +1,15 @@
+---
+- name: Import RabbitMQ signing key
+  rpm_key:
+          state: present
+          key: https://www.rabbitmq.com/rabbitmq-release-signing-key.asc
+
+- name: Install RabbitMQ RPM
+  command: rpm -i https://dl.bintray.com/rabbitmq/rabbitmq-server-rpm/rabbitmq-server-3.6.12-1.el7.noarch.rpm
+
+- name: enabling RabbitMQ Management Console
+  rabbitmq_plugin: names=rabbitmq_management state=enabled
+  notify: restart rabbitmq-server
+
+- name: Ensuring the RabbitMQ Service is running
+  service: name=rabbitmq-server state=started enabled=yes

@@ -1,0 +1,9 @@
+---
+- include_tasks: java.yml
+
+- include_tasks: elasticsearch_install.yml
+
+- include_tasks: elasticsearch_config.yml
+
+- name: restart Elasticsearch
+  service: name=elasticsearch state=restarted

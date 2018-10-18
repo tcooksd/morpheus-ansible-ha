@@ -1,0 +1,16 @@
+---
+- include_tasks: selinux.yml
+
+- include_tasks: percona_install.yml
+
+- include_tasks: percona_prep.yml
+
+- include_tasks: percona_set_root.yml
+
+- include_tasks: percona_sstuser.yml
+
+- include_tasks: percona_config.yml
+
+- include_tasks: percona_bootstrap.yml
+
+- include_tasks: percona_db_create.yml
