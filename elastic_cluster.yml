@@ -1,5 +1,5 @@
 ---
-- hosts: elastic_cluster
+- hosts: all
   gather_facts: true
   roles:
       - elasticsearch

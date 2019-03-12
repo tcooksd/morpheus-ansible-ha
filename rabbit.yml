@@ -1,5 +1,5 @@
 ---
-- hosts: rabbit_cluster
+- hosts: all
   gather_facts: true
   roles:
       - rabbitmq

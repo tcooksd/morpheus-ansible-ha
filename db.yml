@@ -1,5 +1,5 @@
 ---
-- hosts: db
+- hosts: all
   gather_facts: true
   pre_tasks:
       - name: Gather Morpheus facts
