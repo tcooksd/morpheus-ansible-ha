@@ -1,0 +1,6 @@
+---
+- hosts: rabbit_cluster
+  gather_facts: true
+  roles:
+      - rabbitmq
+  become: true

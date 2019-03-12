@@ -1,0 +1,22 @@
+---
+- hosts: morpheus
+  gather_facts: true
+  pre_tasks:
+      - name: Gather Elastic Facts
+        setup:
+        delegate_to: "{{ item }}"
+        delegate_facts: true
+        with_items: "{{ groups['elastic_cluster'] }}"
+      - name: Gather Rabbit Facts
+        setup:
+        delegate_to: "{{ item }}"
+        delegate_facts: true
+        with_items: "{{ groups['rabbit_cluster'] }}"
+      - name: Gather DB facts
+        setup:
+        delegate_to: "{{ item }}"
+        delegate_facts: true
+        with_items: "{{ groups['db'] }}"
+  roles:
+      - morpheus
+  become: true

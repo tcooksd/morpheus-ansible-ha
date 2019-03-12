@@ -1,0 +1,6 @@
+---
+- hosts: elastic_cluster
+  gather_facts: true
+  roles:
+      - elasticsearch
+  become: true

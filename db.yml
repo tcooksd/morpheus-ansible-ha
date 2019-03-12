@@ -1,0 +1,12 @@
+---
+- hosts: db
+  gather_facts: true
+  pre_tasks:
+      - name: Gather Morpheus facts
+        setup:
+        delegate_to: "{{ item }}"
+        delegate_facts: true
+        with_items: "{{ groups['morpheus'] }}"
+  roles:
+      - percona
+  become: true
